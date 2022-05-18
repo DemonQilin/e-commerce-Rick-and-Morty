@@ -1,0 +1,329 @@
+:root {
+    /*================== Colors ==================*/
+    --color-bakcground: #3D373C;
+    --color-letter: #E7E0DB;
+    --color-title: #8bcf21;
+    --color-subtitle: #2f9331;
+    --color-second: #477385;
+    --color-third: #83D2E4;
+}
+
+/*===================== RESET DOCUMENT =====================*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+body {
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+
+    color: var(--color-letter);
+    background-color: var(--color-bakcground);
+
+    overflow: hidden;
+}
+
+
+/*========================= HEADER =========================*/
+
+.header {
+    padding: 0.5rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+
+    background-color: var(--color-title);
+    color: var(--color-bakcground);
+}
+
+.container-image {
+    height: 50px;
+}
+
+.image {
+    max-height: 100%;
+}
+
+.title {
+    margin: 0;
+    display: none;
+}
+
+@media screen and (min-width: 1024px) {
+    .title {
+        display: block;
+    }
+}
+
+/*================ NABVAR ================*/
+
+.nav {
+    position: fixed;
+    left: 0;
+    top: 60px;
+    z-index: 1;
+
+    width: 100vw;
+    height: calc(100vh - 60px);
+    padding: 2rem 0 0;
+
+    font-size: 2.5rem;
+
+    background-color: black;
+    color: var(--color-letter);
+
+    opacity: 0.85;
+    overflow: auto;
+    transform: translateX(100%);
+    transition: transform ease 0.3s;
+}
+
+.nav-active {
+    transform: translateX(0%);
+}
+
+/*============= NAV TITLE =============*/
+.nav-title {
+    display: block;
+    margin: 0 auto;
+    padding-left: 2rem;
+
+    color: var(--color-title);
+}
+
+/*============= NAV LIST =============*/
+
+.nav-list {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.nav-item {
+    display: block;
+    width: 100%;
+}
+
+.nav-link {
+    display: block;
+    padding: 2rem;
+
+    text-decoration: none;
+
+    color: inherit;
+}
+
+.nav-i {
+    display: inline-block;
+    margin-right: 1.5rem;
+}
+
+.nav-i--down {
+    position: absolute;
+    right: 2rem;
+}
+
+@media screen and (min-width: 1024px) {
+    .nav {
+        position: static;
+
+        display: block;
+        width: 100%;
+        height: unset;
+
+        font-size: 1rem;
+
+        background-color: transparent;
+
+        transform: translateX(0%);
+    }
+
+    .nav-list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding: 1rem 0 0;
+        width: unset;
+        height: unset;
+    
+        border-top: thin solid var(--color-subtitle);
+        list-style-type: none;
+    }
+
+    .nav-link:hover {
+        color: var(--color-title);
+    }
+}
+
+/*================= SubList =================*/
+
+.item-container {
+    min-height: 20vh;
+    background-color: rgb(21, 20, 20);
+}
+
+.item-list {
+    margin: 0;
+    /* padding: 2rem; */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    text-align: left;
+
+    list-style-type: disc;
+
+    visibility: hidden;
+    transition: visibility ease 0.3s;
+}
+
+.item-item {
+    /* display: block;
+    width: 100%; */
+}
+
+.item-link {
+    display: block;
+    padding: 1rem;
+
+    text-decoration: none;
+    font-size: 70%;
+
+    color: inherit;
+}
+
+
+@media screen and (min-width: 1024px) {
+    .item-link:hover {
+        color: var(--color-title);
+    }
+}
+
+
+/*============ Activator Button Nav ============*/
+
+.btn {
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background-color: transparent;
+    border: none;
+
+    cursor: pointer;
+}
+/*================= FORM =================*/
+
+.form-search {
+    position: relative;
+    width: 60%;
+}
+
+@media screen and (min-width: 500px) {
+    .form-search {
+        width: 75%;
+    }
+}
+
+.input--search {
+    padding: 2px 2px 2px 30px;
+    width: 100%;
+    height: 25px;
+
+    border: none;
+    border-radius: 3px;
+}
+
+@media screen and (min-width: 425px) {
+    .input--search {
+        padding: 2px 2px 2px 35px;
+        height: 30px;
+    }
+}
+
+.submit--search {
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    height: 25px;
+    width: 25px;
+
+    text-align: center;
+
+    border: none;
+    background-color: transparent;
+}
+
+
+/*====================== BUTTON CART ======================*/
+
+.btn-cart {
+    position: fixed;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    width: 75px;
+    height: 75px;
+
+    font-size: 3rem;
+
+    background-color: var(--color-title);
+    border-radius: 50%;
+    border: 2px solid black;
+}
+
+.cart-counter {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 25px;
+    height: 25px;
+
+    font-size: 1.5rem;
+    font-weight: bold;
+
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: var(--color-third);
+
+    transform: translate(7px,-7px);
+}
+
+/*====================== REMOVE CLASS ======================*/
+.none {
+    display: none;
+}
+
+.visible {
+    visibility: visible;
+}

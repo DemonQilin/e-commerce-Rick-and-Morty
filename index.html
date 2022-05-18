@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store - Rick and Morty</title>
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Biblioteca Iconos -->
+    <script src="https://kit.fontawesome.com/0e96c498cb.js" crossorigin="anonymous"></script>
+    <link rel="preload" href="https://rickandmortyapi.com/api/character" as="fetch" crossorigin>
+    <!-- Estilos -->
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.2.1/hamburgers.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="container-image">
+            <img src="./assets/img/logo.png" alt="Logo de mercado intergaláctico" class="image">
+        </div>
+        <h1 class="title">Mercado Galáctico</h1>
+        <form id="form-search" class="form-search">
+            <input type="search" name="search" id="search" class="input--search" placeholder="Busca el nombre de tu personaje">
+            <input type="submit" class="submit--search" value="🔍">
+        </form>
+        <button class="btn btn--menu hamburger hamburger--vortex" type="button">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+        </button>
+        <nav class="nav">
+            <div class="nav-title">Filtrar</div>
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="nav-link"><i class="fa-solid fa-skull nav-i"></i>Estado<i class="fa-solid fa-angle-down nav-i nav-i--down"></i></a>
+                    <div class="item-container none">
+                        <ul class="item-list">
+                            <li class="item-item"><a href="https://rickandmortyapi.com/api/character?status=alive" target="_blank" rel="noopener noreferrer" class="item-link">Vivo</a></li>
+                            <li class="item-item"><a href="https://rickandmortyapi.com/api/character?status=dead" target="_blank" rel="noopener noreferrer" class="item-link">Muerto</a></li>
+                            <li class="item-item"><a href="https://rickandmortyapi.com/api/character?status=unknown" target="_blank" rel="noopener noreferrer" class="item-link">Desconocido</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="nav-link"><i class="fa-solid fa-spaghetti-monster-flying nav-i"></i>Especie<i class="fa-solid fa-angle-down nav-i nav-i--down"></i></a>
+                    <div class="item-container none">
+                        <ul class="item-list">
+                            <li class="item-item"><a href="https://rickandmortyapi.com/api/character?species=human" target="_blank" rel="noopener noreferrer" class="item-link">Humano</a></li>
+                            <li class="item-item"><a href="https://rickandmortyapi.com/api/character?species=alien" target="_blank" rel="noopener noreferrer" class="item-link">Alien</a></li>
+                            <li class="item-item"><a href="https://rickandmortyapi.com/api/character?species=mythological&creature" target="_blank" rel="noopener noreferrer" class="item-link">Creatura Mitológica</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="nav-link"><i class="fa-solid fa-person-half-dress nav-i"></i>Género<i class="fa-solid fa-angle-down nav-i nav-i--down"></i></a>
+                    <div class="item-container none">
+                        <ul class="item-list">
+                            <li class="item-item"><a href="https://rickandmortyapi.com/api/character?gender=male" target="_blank" rel="noopener noreferrer" class="item-link">Masculino</a></li>
+                            <li class="item-item"><a href="https://rickandmortyapi.com/api/character?gender=female" target="_blank" rel="noopener noreferrer" class="item-link">Femenino</a></li>
+                            <li class="item-item"><a href="https://rickandmortyapi.com/api/character?gender=genderless" target="_blank" rel="noopener noreferrer" class="item-link">No Binario</a></li>
+                            <li class="item-item"><a href="https://rickandmortyapi.com/api/character?gender=unknown" target="_blank" rel="noopener noreferrer" class="item-link">Desconocido</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="nav-link"><i class="fa-solid fa-location-dot nav-i"></i>Ubicación<i class="fa-solid fa-angle-down nav-i nav-i--down"></i></a>
+                    <div class="item-container none">
+                        <ul class="item-list" id="prueba">
+                            <li class="item-item"><a href="https://rickandmortyapi.com/api/location/1" target="_blank" rel="noopener noreferrer" class="item-link">Tierra C 137</a></li>
+                            <li class="item-item"><a href="https://rickandmortyapi.com/api/location/3" target="_blank" rel="noopener noreferrer" class="item-link">Ciudadela de los Ricks</a></li>
+                            <li class="item-item"><a href="https://rickandmortyapi.com/api/location/96" target="_blank" rel="noopener noreferrer" class="item-link">Tren de historias</a></li>
+                            <li class="item-item"><a href="https://rickandmortyapi.com/api/location/6" target="_blank" rel="noopener noreferrer" class="item-link">Cable Interdimensional</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <button class="btn btn-cart">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <div class="cart-counter">0</div>
+    </button>
+    <script src="./main.js" type="module"></script>
+</body>
+</html>
