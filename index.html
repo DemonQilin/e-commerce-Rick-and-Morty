@@ -22,9 +22,9 @@
         <div class="container-image">
             <img src="./assets/img/logo.png" alt="Logo de mercado intergaláctico" class="image">
         </div>
-        <h1 class="title">Mercado Galáctico</h1>
+        <h1 class="title">Mercado Intergalactico</h1>
         <form id="form-search" class="form-search">
-            <input type="search" name="search" id="search" class="input--search" placeholder="Busca el nombre de tu personaje">
+            <input type="text" name="search" id="search" class="input--search" placeholder="Busca el nombre del personaje">
             <input type="submit" class="submit--search" value="🔍">
         </form>
         <button class="btn btn--menu hamburger hamburger--vortex" type="button">
@@ -32,11 +32,18 @@
                 <span class="hamburger-inner"></span>
             </span>
         </button>
+        <button class="btn btn-cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <div class="cart-counter">0</div>
+        </button>
+        <button class="btn btn-dark--mode">
+            <i class="fa-regular fa-sun"></i>
+        </button>
         <nav class="nav">
             <div class="nav-title">Filtrar</div>
             <ul class="nav-list">
                 <li class="nav-item">
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="nav-link"><i class="fa-solid fa-skull nav-i"></i>Estado<i class="fa-solid fa-angle-down nav-i nav-i--down"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="nav-link" title="Ver filtro"><i class="fa-solid fa-skull nav-i"></i>Estado<i class="fa-solid fa-angle-down nav-i nav-i--down"></i></a>
                     <div class="item-container none">
                         <ul class="item-list">
                             <li class="item-item"><a href="https://rickandmortyapi.com/api/character?status=alive" target="_blank" rel="noopener noreferrer" class="item-link">Vivo</a></li>
@@ -46,7 +53,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="nav-link"><i class="fa-solid fa-spaghetti-monster-flying nav-i"></i>Especie<i class="fa-solid fa-angle-down nav-i nav-i--down"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="nav-link" title="Ver filtro"><i class="fa-solid fa-spaghetti-monster-flying nav-i"></i>Especie<i class="fa-solid fa-angle-down nav-i nav-i--down"></i></a>
                     <div class="item-container none">
                         <ul class="item-list">
                             <li class="item-item"><a href="https://rickandmortyapi.com/api/character?species=human" target="_blank" rel="noopener noreferrer" class="item-link">Humano</a></li>
@@ -56,7 +63,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="nav-link"><i class="fa-solid fa-person-half-dress nav-i"></i>Género<i class="fa-solid fa-angle-down nav-i nav-i--down"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="nav-link" title="Ver filtro"><i class="fa-solid fa-person-half-dress nav-i"></i>Género<i class="fa-solid fa-angle-down nav-i nav-i--down"></i></a>
                     <div class="item-container none">
                         <ul class="item-list">
                             <li class="item-item"><a href="https://rickandmortyapi.com/api/character?gender=male" target="_blank" rel="noopener noreferrer" class="item-link">Masculino</a></li>
@@ -67,7 +74,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="nav-link"><i class="fa-solid fa-location-dot nav-i"></i>Ubicación<i class="fa-solid fa-angle-down nav-i nav-i--down"></i></a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="nav-link" title="Ver filtro"><i class="fa-solid fa-location-dot nav-i"></i>Ubicación<i class="fa-solid fa-angle-down nav-i nav-i--down"></i></a>
                     <div class="item-container none">
                         <ul class="item-list" id="prueba">
                             <li class="item-item"><a href="https://rickandmortyapi.com/api/location/1" target="_blank" rel="noopener noreferrer" class="item-link">Tierra C 137</a></li>
@@ -80,10 +87,6 @@
             </ul>
         </nav>
     </header>
-    <button class="btn btn-cart">
-        <i class="fa-solid fa-cart-shopping"></i>
-        <div class="cart-counter">0</div>
-    </button>
     <script src="./main.js" type="module"></script>
 </body>
 </html>

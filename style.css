@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Schwifty';
+    src: url('./assets/fonts/get_schwifty.ttf');
+}
+
 :root {
     /*================== Colors ==================*/
     --color-bakcground: #3D373C;
@@ -36,14 +41,23 @@ body {
 /*========================= HEADER =========================*/
 
 .header {
+    width: 100vw;
     padding: 0.5rem 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
 
+    font-size: 100%;
+
     background-color: var(--color-title);
     color: var(--color-bakcground);
+}
+
+@media screen and (min-width: 1024px) {
+    .header {
+        padding-bottom: 0;
+    }
 }
 
 .container-image {
@@ -57,6 +71,10 @@ body {
 .title {
     margin: 0;
     display: none;
+
+    font-family: Schwifty, 'Roboto', Arial, sans-serif;
+    font-size: 3rem;
+    text-shadow: 0 0 5px var(--color-third), 0 0 10px var(--color-third);
 }
 
 @media screen and (min-width: 1024px) {
@@ -88,6 +106,27 @@ body {
     transition: transform ease 0.3s;
 }
 
+@media screen and (min-width: 1024px) {
+    .nav {
+        position: static;
+    
+        display: block;
+        width: 100%;
+        height: unset;
+        padding-top: 1rem;
+    
+        font-size: 2rem;
+    
+        background-color: transparent;
+        color: var(--color-bakcground);
+    
+        opacity: unset;
+        overflow: unset;
+        transform: translateX(0%);
+        transition: none;
+    }
+}
+
 .nav-active {
     transform: translateX(0%);
 }
@@ -101,6 +140,12 @@ body {
     color: var(--color-title);
 }
 
+@media screen and (min-width: 1024px) {
+    .nav-title {
+        display: none;
+    }
+}
+
 /*============= NAV LIST =============*/
 
 .nav-list {
@@ -112,18 +157,44 @@ body {
     align-items: center;
 }
 
+@media screen and (min-width: 1024px) {
+    .nav-list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width: unset;
+        height: unset;
+    
+        border-top: thin solid var(--color-subtitle);
+        list-style-type: none;
+    }
+}
+
 .nav-item {
+    position: relative;
     display: block;
     width: 100%;
 }
 
 .nav-link {
+    position: relative;
     display: block;
     padding: 2rem;
 
     text-decoration: none;
 
     color: inherit;
+}
+
+@media screen and (min-width: 1024px) {
+    .nav-link {
+        padding: 1rem;
+    }
+
+    .nav-link:hover {
+        color: var(--color-letter);
+    }
 }
 
 .nav-i {
@@ -135,40 +206,6 @@ body {
     position: absolute;
     right: 2rem;
 }
-
-@media screen and (min-width: 1024px) {
-    .nav {
-        position: static;
-
-        display: block;
-        width: 100%;
-        height: unset;
-
-        font-size: 1rem;
-
-        background-color: transparent;
-
-        transform: translateX(0%);
-    }
-
-    .nav-list {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        padding: 1rem 0 0;
-        width: unset;
-        height: unset;
-    
-        border-top: thin solid var(--color-subtitle);
-        list-style-type: none;
-    }
-
-    .nav-link:hover {
-        color: var(--color-title);
-    }
-}
-
 /*================= SubList =================*/
 
 .item-container {
@@ -176,9 +213,22 @@ body {
     background-color: rgb(21, 20, 20);
 }
 
+@media screen and (min-width: 1024px) {
+    .item-container {
+        position: absolute;
+
+        width: calc(100% - 2rem);
+        padding-top: 15px;
+
+        clip-path: polygon(0 10px, calc(100% - 44px) 10px, calc(100% - 32px) 0, calc(100% - 20px) 10px, 100% 10px, 100% 100%, 0 100%);
+        border-radius: 5px;
+
+        transform: translate(10px, -10px);
+    }
+}
+
 .item-list {
     margin: 0;
-    /* padding: 2rem; */
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -194,12 +244,13 @@ body {
 }
 
 .item-item {
-    /* display: block;
-    width: 100%; */
+    width: 100%;
+    width: -webkit-fill-available;
 }
 
 .item-link {
-    display: block;
+    display: inline-block;
+    width: 100%;
     padding: 1rem;
 
     text-decoration: none;
@@ -210,7 +261,11 @@ body {
 
 
 @media screen and (min-width: 1024px) {
-    .item-link:hover {
+    .item-list {
+        color: var(--color-letter);
+    }
+
+    .item-item:hover {
         color: var(--color-title);
     }
 }
@@ -233,21 +288,44 @@ body {
 
     cursor: pointer;
 }
+
+@media screen and (min-width: 1024px) {
+    .btn--menu {
+        display: none;
+    }
+}
 /*================= FORM =================*/
 
 .form-search {
     position: relative;
-    width: 60%;
+    width: 50%;
+    max-width: 600px;
+
+    font-size: .9rem;
+}
+
+@media screen and (min-width: 425px) {
+    .form-search {
+        font-size: 1.2rem;
+    }
 }
 
 @media screen and (min-width: 500px) {
     .form-search {
-        width: 75%;
+        width: 65%;
+
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .form-search {
+        font-size: 2rem;
     }
 }
 
 .input--search {
-    padding: 2px 2px 2px 30px;
+    padding: 2px 2px 2px 25px;
     width: 100%;
     height: 25px;
 
@@ -255,10 +333,18 @@ body {
     border-radius: 3px;
 }
 
+
 @media screen and (min-width: 425px) {
     .input--search {
         padding: 2px 2px 2px 35px;
         height: 30px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .input--search {
+        padding: 2px 15px;
+        height: 40px;
     }
 }
 
@@ -278,15 +364,44 @@ body {
 
     border: none;
     background-color: transparent;
+
+    cursor: pointer;
 }
 
+@media screen and (min-width: 425px) {
+    .submit--search {
+        height: 30px;
+        width: 30px;
+    }
+
+}
+
+@media screen and (min-width: 1024px) {
+    .submit--search {
+        left: unset;
+        right: 0;
+
+        width: 40px;
+        height: 30px;
+
+        border-left: thin solid var(--color-bakcground);
+        transform: translateY(5px);
+    }
+}
+
+/*=============== BUTTON DARK-MODE ===============*/
+.btn-dark--mode {
+    font-size: 3rem;
+}
 
 /*====================== BUTTON CART ======================*/
 
 .btn-cart {
+    --position: 7px;
+
     position: fixed;
-    bottom: 0.5rem;
-    right: 0.5rem;
+    bottom: 1vh;
+    right: 1vw;
     width: 75px;
     height: 75px;
 
@@ -316,7 +431,39 @@ body {
     border-radius: 50%;
     background-color: var(--color-third);
 
-    transform: translate(7px,-7px);
+    transform: translate(var(--position), calc(-1 * var(--position)));
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility ease 0.3s, opacity ease 0.3s;
+}
+
+.add-product {
+    animation: addProduct 0.3s ease 0s 1 backwards;
+}
+
+@keyframes addProduct {
+    50% {
+        transform: translate(var(--position), calc(-1 * var(--position) - 5px));
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .btn-cart {
+        --position: 12px;
+
+        position: relative;
+        right: unset;
+        bottom: unset;
+
+        width: unset;
+        height: unset;
+
+        border: none;
+    }
+
+    .cart-counter {
+        transform: translate(var(--position), calc(-1 * var(--position)));
+    }
 }
 
 /*====================== REMOVE CLASS ======================*/
@@ -325,5 +472,6 @@ body {
 }
 
 .visible {
+    opacity: 1;
     visibility: visible;
 }
