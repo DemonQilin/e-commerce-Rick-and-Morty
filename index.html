@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,7 +24,7 @@
         </div>
         <h1 class="title">Mercado Intergalactico</h1>
         <form id="form-search" class="form-search">
-            <input type="text" name="search" id="search" class="input--search" placeholder="Busca el nombre del personaje">
+            <input type="text" name="search" id="search" class="input--search" placeholder="Busca el nombre del personaje" pattern="^\w{1,60}$">
             <input type="submit" class="submit--search" value="🔍">
         </form>
         <button class="btn btn--menu hamburger hamburger--vortex" type="button">
@@ -87,6 +87,63 @@
             </ul>
         </nav>
     </header>
+    <main>
+        <div class="carrusel">
+            <div class="carrusel-slides" data-slices-container>
+                <picture>
+                    <source srcset="./assets/img/b1_500.png" media="(max-width: 500px)">
+                    <source srcset="./assets/img/b1_1000.png" media="(max-width: 1000px)">
+                    <source srcset="./assets/img/b1_1500.png" media="(max-width: 1500px)">
+                    <img src="./assets/img/b1_1920.jpg" alt="" class="slider" data-slide="1">
+                </picture>
+                <picture>
+                    <source srcset="./assets/img/b2_500.png" media="(max-width: 500px)">
+                    <source srcset="./assets/img/b2_1000.png" media="(max-width: 1000px")>
+                    <source srcset="./assets/img/b2_1500.png" media="(max-width: 1500px)">
+                    <img src="./assets/img/b2_1920.png" alt="" class="slider" data-slide="2">
+                </picture>
+                <picture>
+                    <source srcset="./assets/img/b3_500.png" media="(max-width: 500px)">
+                    <source srcset="./assets/img/b3_1000.png" media="(max-width: 1000px)">
+                    <source srcset="./assets/img/b3_1500.png" media="(max-width: 1500px)">
+                    <img src="./assets/img/b3_1920.png" alt="" class="slider" data-slide="3">
+                </picture>
+                <picture>
+                    <source srcset="./assets/img/b4_500.png" media="(max-width: 500px)">
+                    <source srcset="./assets/img/b4_1000.png" media="(max-width: 1000px)">
+                    <source srcset="./assets/img/b4_1500.png" media="(max-width: 1500px)">
+                    <img src="./assets/img/b4_1920.png" alt="" class="slider" data-slide="4">
+                </picture>
+                <picture>
+                    <source srcset="./assets/img/b5_500.png" media="(max-width: 500px)">
+                    <source srcset="./assets/img/b5_1000.png" media="(max-width: 1000px)">
+                    <source srcset="./assets/img/b5_1500.png" media="(max-width: 1500px)">
+                    <img src="./assets/img/b5_1920.png" alt="" class="slider" data-slide="5">
+                </picture>
+                <picture>
+                    <source srcset="./assets/img/b6_500.png" media="(max-width: 500px)">
+                    <source srcset="./assets/img/b6_1000.png" media="(max-width: 1000px)">
+                    <source srcset="./assets/img/b6_1500.png" media="(max-width: 1500px)">
+                    <img src="./assets/img/b6_1920.jpg" alt="" class="slider" data-slide="6">
+                </picture>
+            </div>
+            <div class="carrusel-btns--laterals">
+                <button class="btn carrusel-btn--lateral carrusel-btn-1" data-left><i class="fa-solid fa-angle-left"></i></button>
+                <button class="btn carrusel-btn--lateral carrusel-btn-2" data-right><i class="fa-solid fa-angle-right"></i></button>
+            </div>
+            <div class="carrusel-btns--points">
+                <button class="btn carrusel-btn--point" data-btn="1"></button>
+                <button class="btn carrusel-btn--point" data-btn="2"></button>
+                <button class="btn carrusel-btn--point" data-btn="3"></button>
+                <button class="btn carrusel-btn--point" data-btn="4"></button>
+                <button class="btn carrusel-btn--point" data-btn="5"></button>
+                <button class="btn carrusel-btn--point" data-btn="6"></button>
+            </div>
+        </div>
+        <section class="section">
+            <h2 class="section-title"></h2>
+        </section>
+    </main>
     <script src="./main.js" type="module"></script>
 </body>
 </html>
