@@ -5,7 +5,8 @@
 
 :root {
     /*================== Colors ==================*/
-    --color-bakcground: #3D373C;
+    --color-bakcground: #222;
+    --color-dark-soft: #3D373C;
     --color-letter: #E7E0DB;
     --color-title: #8bcf21;
     --color-subtitle: #2f9331;
@@ -23,16 +24,19 @@
 html {
     font-size: 62.5%;
     font-family: 'Roboto', Arial, sans-serif;
+
+    overflow-x: hidden;
 }
 
 body {
     padding-top: 60px;
+    width: 100%;
+    height: 100%;
 
     color: var(--color-letter);
     background-color: var(--color-bakcground);
 
     overflow-x: hidden;
-    overflow-y: auto;
 }
 
 @media screen and (min-width: 1024px) {
@@ -114,7 +118,7 @@ main {
     background-color: black;
     color: var(--color-letter);
 
-    opacity: 0.85;
+    opacity: 0.95;
     overflow: auto;
     transform: translateX(100%);
     transition: transform ease 0.3s;
@@ -223,7 +227,8 @@ main {
 /*================= SubList =================*/
 
 .item-container {
-    min-height: 20vh;
+    min-height: 120px;
+
     background-color: rgb(21, 20, 20);
 }
 
@@ -480,10 +485,17 @@ main {
     }
 }
 /*===================== SECTIONS =====================*/
+.section {
+    min-width: 320px;
+    margin-top: 3rem;
+    padding: 0 2rem;
+}
 .section-title {
     margin: 0;
-}
 
+    font-size: 3rem;
+    font-weight: 400;
+}
 /*====================== CARRUSEL ======================*/
 .carrusel {
     position: relative;
@@ -617,6 +629,110 @@ main {
     transform: scale(1.3);
 }
 
+/*================== ARTICLES (PRODUCTS) ==================*/
+.container-products {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-flow: auto;
+    gap: 2.5rem;
+}
+
+@media screen and (min-width: 625px) {
+    .container-products {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 930px) {
+    .container-products {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 1235px) {
+    .container-products {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+.article {
+    margin: 0 auto;
+    min-width: 280px;
+    max-width: 450px;
+    background-color: var(--color-dark-soft);
+    border-radius: 5%;
+
+    overflow: hidden;
+}
+
+.article-img {
+    width: 100%;
+
+    object-fit: cover;
+}
+
+.article-contain {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-around;
+
+    font-size: 1.5rem;
+}
+
+/*=================== PRODUCT DETAILS ===================*/
+.article-title {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.status {
+    margin-top: 1rem;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 1rem;
+}
+
+.status-span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+
+    background-color: #8bcf21;
+    border-radius: 50%;
+}
+
+.especie-span {
+    font-weight: 600;
+}
+/*==================== PRODUCT INVENT ====================*/
+.article-precio {
+    margin: 0;
+    font-size: 2.5rem;
+
+    color: var(--color-title);
+}
+
+.control-stock {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: var(--color-letter);
+    color: var(--color-bakcground);
+
+    border-radius: 25%/50%;
+    overflow: hidden;
+}
+
+.quanty {
+    font-size: 1.5rem;
+}
 
 /*====================== REMOVE CLASS ======================*/
 .none {
