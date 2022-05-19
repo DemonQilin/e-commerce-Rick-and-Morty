@@ -143,54 +143,37 @@
         <section class="section">
             <h2 class="section-title">NFT'S ON FIRE</h2>
             <div class="container-products">
-                <article class="article" data-resume="rick sanchez,alive,human,male">
-                    <div class="article-container-img">
-                        <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="Rick Sanchez" class="article-img">
+                <!-- <div class="products-loader-container">
+                    <div class="products-loader">
+                        <img src="./assets/icons/loader.svg" alt="">
                     </div>
-                    <div class="article-contain">
-                        <div class="article-container-details">
-                            <h3 class="article-title">Rick Sanchez</h3>
-                            <p class="status"><span class="status-span"></span>Vivo</p>
-                            <p class="especie"><span class="especie-span">Especie:</span> Humano</p>
-                            <p class="genero">Masculino</p>
-                            <p class="ubicacion">Earth (C-137)</p>
+                </div> -->
+                <template id="template-product">
+                    <article class="article" data-resume="">
+                        <div class="article-container-img">
+                            <img src="" alt="" class="article-img">
                         </div>
-                        <div class="article-container-invent">
-                            <p class="article-precio">$ 45 USD</p>
-                            <div class="control-stock">
-                                <button class="btn btn-stokc btn-stock--less"><i class="fa-solid fa-minus"></i></button>
-                                <p class="quanty">1</p>
-                                <button class="btn btn-stokc btn-stock--plus"><i class="fa-solid fa-plus"></i></button>
+                        <div class="article-contain">
+                            <div class="article-container-details">
+                                <h3 class="article-title"></h3>
+                                <p class="status"></p>
+                                <p class="especie"></p>
+                                <p class="genero"></p>
+                                <p class="ubicacion"></p>
                             </div>
-                            <p class="stock">2 unidades</p>
-                            <button class="btn btn-add-cart">j</button>
-                        </div>
-                    </div>
-                </article>
-                <article class="article" data-resume="rick sanchez,alive,human,male">
-                    <div class="article-container-img">
-                        <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="Rick Sanchez" class="article-img">
-                    </div>
-                    <div class="article-contain">
-                        <div class="article-container-details">
-                            <h3 class="article-title">Rick Sanchez</h3>
-                            <p class="status"><span class="status-span"></span>Vivo</p>
-                            <p class="especie"><span class="especie-span">Especie:</span> Humano</p>
-                            <p class="genero">Masculino</p>
-                            <p class="ubicacion">Earth (C-137)</p>
-                        </div>
-                        <div class="article-container-invent">
-                            <p class="article-precio">$ 45 USD</p>
-                            <div class="control-stock">
-                                <button class="btn btn-stokc btn-stock--less"><i class="fa-solid fa-minus"></i></button>
-                                <p class="quanty">1</p>
-                                <button class="btn btn-stokc btn-stock--plus"><i class="fa-solid fa-plus"></i></button>
+                            <div class="article-container-invent">
+                                <p class="article-precio"></p>
+                                <div class="control-stock">
+                                    <button class="btn btn-stokc btn-stock--less"><i class="fa-solid fa-minus"></i></button>
+                                    <p class="quanty">1</p>
+                                    <button class="btn btn-stokc btn-stock--plus"><i class="fa-solid fa-plus"></i></button>
+                                </div>
+                                <p class="stock"></p>
                             </div>
-                            <p class="stock">2 unidades</p>
-                            <button class="btn btn-add-cart">j</button>
                         </div>
-                    </div>
-                </article>
+                        <button class="btn btn-add-cart"><i class="fa-solid fa-cart-plus"></i></button>
+                    </article>
+                </template>
             </div>
         </section>
     </main>
