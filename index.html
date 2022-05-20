@@ -34,7 +34,7 @@
         </button>
         <button class="btn btn-cart">
             <i class="fa-solid fa-cart-shopping"></i>
-            <div class="cart-counter">0</div>
+            <div class="cart-counter" data-count="0">0</div>
         </button>
         <button class="btn btn-dark--mode">
             <i class="fa-regular fa-sun"></i>
@@ -174,6 +174,40 @@
                         <button class="btn btn-add-cart"><i class="fa-solid fa-cart-plus"></i></button>
                     </article>
                 </template>
+            </div>
+        </section>
+        <section class="section section--cart">
+            <div class="container-cart">
+                <div class="cart-header">
+                    <button class="btn btn-cart-hidden"><i class="fa-solid fa-arrow-left"></i></button>
+                    <h2 class="section-title title--cart">Carrito (<span>0</span>)</h2>
+                </div>
+                <div class="container-products-cart">
+                    <template id="template-product-cart">
+                        <article class="article--cart">
+                            <div class="container-img-cart">
+                                <img src="" alt="" class="img-cart">
+                            </div>
+                            <div class="container-contain-cart">
+                                <p class="article-cart-total"></p>
+                                <h3 class="article-cart-title"></h3>
+                                <p class="especie--cart"></p>
+                                <div class="article-cart-btns">
+                                    <div class="control-stock control-stock--cart">
+                                        <button class="btn btn-stokc btn-stock-cart--less" title="Disminuir cantidad"><i class="fa-solid fa-minus"></i></button>
+                                        <p class="quanty quanty--cart">1</p>
+                                        <button class="btn btn-stokc btn-stock-cart--plus" title="Aumentar cantidad"><i class="fa-solid fa-plus"></i></button>
+                                    </div>
+                                    <button class="btn btn-remove-cart" title="Eliminar del carrito"><i class="fa-solid fa-xmark"></i></button>
+                                </div>
+                            </div>
+                        </article>
+                    </template>
+                </div>
+                <div class="container-action-cart">
+                    <p class="total-cart">Total:<span class="total-cart--value">$ <span>0</span> USD</span></p>
+                    <button class="btn btn-buy-cart">Comprar</button>
+                </div>
             </div>
         </section>
     </main>

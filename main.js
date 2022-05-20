@@ -1,3 +1,5 @@
+import addProductCart from "./modules/add-cart.js";
+import { toDoVisibleCart } from "./modules/btn-cart-visible.js";
 import { hamburguerMenu } from "./modules/hamburguer-menu.js";
 import { mouseEnterBtnsVisibles, RemoveMouseEnterBtnsVisibles } from "./modules/mouse-enter-btn-lateral.js";
 import { mouseEnterVisible, removeMouseEnterVisible } from "./modules/mouse-enter-filters.js";
@@ -13,9 +15,11 @@ const d = document,
 d.addEventListener('DOMContentLoaded', e => {
     printCharacter();
     hamburguerMenu('.btn--menu', '.nav', '.nav-link', '.item-link');
+    toDoVisibleCart('.btn-cart','.btn-cart-hidden' ,'.section--cart'),
     mediaResponsiveFunction(1024, mouseEnterVisible, removeMouseEnterVisible);
     mediaResponsiveFunction(1024, mouseEnterBtnsVisibles, RemoveMouseEnterBtnsVisibles);
     observer('data-slide', 'active-carrusel-btn', 'data-btn');
     slideBtnLateral();
     slidesBtnPoint('data-btn', 'data-slide', 'data-slices-container');
+    addProductCart();
 })

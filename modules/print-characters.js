@@ -9,28 +9,40 @@ export default async function printCharacter() {
     // $loader.classList.add('visible-loader');
 
     let obj = await fetch('https://rickandmortyapi.com/api/character');
-    console.log(obj);
     let response = await obj.json();
 
     // Por cada producto
     response.results.forEach(el => {
-        // id
-        $templateProduct.querySelector('.article').setAttribute('id', el.id);
+        // Seleccionando Article
+        let $article = $templateProduct.querySelector('article');
+
+        // data
+        $article.setAttribute('id', el.id);
+        $article.dataset.name = el.name;
+        $article.dataset.photo = el.image;
+        $article.dataset.status = el.status === "Alive" ? "Vivo" : el.status === "Dead" ? "Muerto" : "Desconocido";
+        $article.dataset.specie = el.species === "Human" ? "Humano" : el.species;
+        $article.dataset.gender = el.gender === "Male" ? "Masculino" : el.gender === "Female" ? "Femenino" : el.gender === "Genderless" ? "No Binario" : "Desconocido";
+        $article.dataset.location = el.location.name === "Citadel of Ricks" ? "Ciudadela de los Ricks" : el.location.name === "Earth (C-137)" ? "Tierra C-137" : el.location.name === "Interdimensional Cable" ? "Cable Interdimensional" : el.location.name === "Story Train" ? "Tren de Historias" : el.location.name;
+        $article.dataset.price = 100 + Math.round(Math.random() * 900);
+        $article.dataset.quanty = 1;
+        $article.dataset.stock = Math.round(Math.random() * 10);
 
         // Photo
-        $templateProduct.querySelector('img').src = el.image;
-        $templateProduct.querySelector('img').alt = el.name;
+        $templateProduct.querySelector('img').src = $article.dataset.photo;
+        $templateProduct.querySelector('img').alt = $article.dataset.name;
 
         // Details
-        $templateProduct.querySelector('.article-title').textContent = el.name;
-        $templateProduct.querySelector('.status').textContent = el.status === "Alive" ? "Vivo" : el.status === "Dead" ? "Muerto" : "Desconocido";
-        $templateProduct.querySelector('.especie').textContent = el.species === "Human" ? "Humano" : el.species;
-        $templateProduct.querySelector('.genero').textContent = el.gender === "Male" ? "Masculino" : el.gender === "Female" ? "Femenino" : el.gender === "Genderless" ? "No Binario" : "Desconocido";
-        $templateProduct.querySelector('.ubicacion').textContent = el.location.name === "Citadel of Ricks" ? "Ciudadela de los Ricks" : el.location.name === "Earth (C-137)" ? "Tierra C-137" : el.location.name === "Interdimensional Cable" ? "Cable Interdimensional" : el.location.name === "Story Train" ? "Tren de Historias" : el.location.name;
+        $templateProduct.querySelector('.article-title').textContent = $article.dataset.name;
+        $templateProduct.querySelector('.status').textContent = $article.dataset.status;
+        $templateProduct.querySelector('.especie').textContent = $article.dataset.specie;
+        $templateProduct.querySelector('.genero').textContent = $article.dataset.gender;
+        $templateProduct.querySelector('.ubicacion').textContent = $article.dataset.location;
 
         // Invent
-        $templateProduct.querySelector('.article-precio').textContent = `$ ${Math.round(Math.random() * 100)} USD`;
-        $templateProduct.querySelector('.stock').textContent = `${Math.round(Math.random() * 5)} unidades`;
+        $templateProduct.querySelector('.article-precio').textContent = `$ ${$article.dataset.price} USD`;
+        $templateProduct.querySelector('.quanty').textContent = $article.dataset.quanty;
+        $templateProduct.querySelector('.stock').textContent = `${$article.dataset.stock} unidades`;
 
         // Clonar Template
         let $clone = d.importNode($templateProduct, true);
