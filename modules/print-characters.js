@@ -26,7 +26,7 @@ export default async function printCharacter() {
         $article.dataset.location = el.location.name === "Citadel of Ricks" ? "Ciudadela de los Ricks" : el.location.name === "Earth (C-137)" ? "Tierra C-137" : el.location.name === "Interdimensional Cable" ? "Cable Interdimensional" : el.location.name === "Story Train" ? "Tren de Historias" : el.location.name;
         $article.dataset.price = 100 + Math.round(Math.random() * 900);
         $article.dataset.quanty = 1;
-        $article.dataset.stock = Math.round(Math.random() * 10);
+        $article.dataset.stock = 1 + Math.round(Math.random() * 9);
 
         // Photo
         $templateProduct.querySelector('img').src = $article.dataset.photo;
@@ -40,7 +40,7 @@ export default async function printCharacter() {
         $templateProduct.querySelector('.ubicacion').textContent = $article.dataset.location;
 
         // Invent
-        $templateProduct.querySelector('.article-precio').textContent = `$ ${$article.dataset.price} USD`;
+        $templateProduct.querySelector('.article-precio').textContent = `$ ${$article.dataset.price} c/u`;
         $templateProduct.querySelector('.quanty').textContent = $article.dataset.quanty;
         $templateProduct.querySelector('.stock').textContent = `${$article.dataset.stock} unidades`;
 

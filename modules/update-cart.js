@@ -17,17 +17,21 @@ export default function updateCart() {
 
     $totalCart.textContent = tPay;
     
-    if (tQuanty === 1) {
+    if (tQuanty >= 1) {
         $counterBtn.classList.add('visible');
     } else if(tQuanty === 0) {
         $counterBtn.classList.remove('visible');
     }
 
-    $counterBtn.classList.add('add-product');
-    setTimeout(() => {
-        $counterBtn.classList.remove('add-product');
-    }, 400);
+    if (tQuanty !== +$counterBtn.dataset.count) {
+        $counterBtn.classList.add('add-product');
+        setTimeout(() => {
+            $counterBtn.classList.remove('add-product');
+        }, 400);
+    }
+
     
     $counterBtn.textContent = tQuanty;
+    $counterBtn.dataset.count = tQuanty;
     $counterTitle.textContent = tQuanty;
 }

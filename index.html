@@ -152,6 +152,7 @@
                     <article class="article" data-resume="">
                         <div class="article-container-img">
                             <img src="" alt="" class="article-img">
+                            <div class="error-quanty"></div>
                         </div>
                         <div class="article-contain">
                             <div class="article-container-details">
@@ -163,15 +164,15 @@
                             </div>
                             <div class="article-container-invent">
                                 <p class="article-precio"></p>
-                                <div class="control-stock">
+                                <div class="control-stock none">
                                     <button class="btn btn-stokc btn-stock--less"><i class="fa-solid fa-minus"></i></button>
                                     <p class="quanty">1</p>
                                     <button class="btn btn-stokc btn-stock--plus"><i class="fa-solid fa-plus"></i></button>
                                 </div>
+                                <button class="btn btn-add-cart visible"><i class="fa-solid fa-cart-plus"></i></button>
                                 <p class="stock"></p>
                             </div>
                         </div>
-                        <button class="btn btn-add-cart"><i class="fa-solid fa-cart-plus"></i></button>
                     </article>
                 </template>
             </div>
@@ -194,13 +195,14 @@
                                 <p class="especie--cart"></p>
                                 <div class="article-cart-btns">
                                     <div class="control-stock control-stock--cart">
-                                        <button class="btn btn-stokc btn-stock-cart--less" title="Disminuir cantidad"><i class="fa-solid fa-minus"></i></button>
+                                        <button class="btn btn-stokc btn-stock--less" title="Disminuir cantidad"><i class="fa-solid fa-minus"></i></button>
                                         <p class="quanty quanty--cart">1</p>
-                                        <button class="btn btn-stokc btn-stock-cart--plus" title="Aumentar cantidad"><i class="fa-solid fa-plus"></i></button>
+                                        <button class="btn btn-stokc btn-stock--plus" title="Aumentar cantidad"><i class="fa-solid fa-plus"></i></button>
                                     </div>
                                     <button class="btn btn-remove-cart" title="Eliminar del carrito"><i class="fa-solid fa-xmark"></i></button>
                                 </div>
                             </div>
+                            <div class="error-quanty error-quanty--cart"></div>
                         </article>
                     </template>
                 </div>
