@@ -1,6 +1,8 @@
 import addProductCart from "./modules/add-cart.js";
 import { toDoVisibleCart } from "./modules/btn-cart-visible.js";
+import buyProduct from "./modules/buy-product.js";
 import deleteProductCart from "./modules/delete-product-cart.js";
+import emptyCart from "./modules/empty-cart.js";
 import { hamburguerMenu } from "./modules/hamburguer-menu.js";
 import modifyQuantyProduct from "./modules/modify-quanty.js";
 import { mouseEnterBtnsVisibles, RemoveMouseEnterBtnsVisibles } from "./modules/mouse-enter-btn-lateral.js";
@@ -26,4 +28,6 @@ d.addEventListener('DOMContentLoaded', e => {
     addProductCart();
     modifyQuantyProduct();
     deleteProductCart();
+    emptyCart();
+    buyProduct();
 })

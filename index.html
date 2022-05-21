@@ -150,6 +150,7 @@
                 </div> -->
                 <template id="template-product">
                     <article class="article" data-resume="">
+                        <div class="sold-out none">SOLD OUT</div>
                         <div class="article-container-img">
                             <img src="" alt="" class="article-img">
                             <div class="error-quanty"></div>
@@ -178,11 +179,12 @@
             </div>
         </section>
         <section class="section section--cart">
-            <div class="container-cart">
-                <div class="msg-cart-vacio"><span>Tu carrito está vacío</span>¿No sabes que comprar? ¡Miles de productoste esperan!</div>
+            <div class="container-cart" data-total="0">
+                <div class="msg-cart-vacio"><span>Tu carrito está vacío</span>¿No sabes que comprar? ¡Miles de NFT's te esperan!</div>
                 <div class="cart-header">
                     <button class="btn btn-cart-hidden"><i class="fa-solid fa-arrow-left"></i></button>
                     <h2 class="section-title title--cart">Carrito (<span>0</span>)</h2>
+                    <button class="btn btn-empty-cart" title="Vaciar carrito"><i class="fa-solid fa-trash-can"></i></button>
                 </div>
                 <div class="container-products-cart">
                     <template id="template-product-cart">
@@ -200,7 +202,7 @@
                                         <p class="quanty quanty--cart">1</p>
                                         <button class="btn btn-stokc btn-stock--plus" title="Aumentar cantidad"><i class="fa-solid fa-plus"></i></button>
                                     </div>
-                                    <button class="btn btn-remove-cart" title="Eliminar del carrito"><i class="fa-solid fa-xmark"></i></button>
+                                    <button class="btn btn-remove-cart" title="Eliminar del carrito"><i class="fa-solid fa-trash-can"></i></button>
                                 </div>
                             </div>
                             <div class="error-quanty error-quanty--cart"></div>
@@ -213,6 +215,16 @@
                 </div>
             </div>
         </section>
+        <div class="msg-buy none">
+            <div class="msg-buy-contain">
+                <p class="buy-msg">¡Tu carrito está vacío!</p>
+                <div class="btns-buy">
+                    <button class="btn btn-buy btn-confirm-buy" title="Confirmar"><i class="fa-solid fa-check"></i></button>
+                    <button class="btn btn-buy btn-close-buy" title="Cerrar"><i class="fa-solid fa-xmark"></i></button>
+                    <button class="btn btn-buy btn-cancel-buy" title="Cancelar"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+            </div>
+        </div>
     </main>
     <script src="./main.js" type="module"></script>
 </body>

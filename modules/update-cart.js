@@ -1,7 +1,8 @@
 const d = document;
 
 export default function updateCart() {
-    const $productsCart = d.querySelectorAll('.article--cart'),
+    const $containerCart = d.querySelector('.container-cart'),
+        $productsCart = d.querySelectorAll('.article--cart'),
         $totalCart = d.querySelector('.total-cart--value span'),
         $counterTitle = d.querySelector('.title--cart span'),
         $counterBtn = d.querySelector('.btn-cart .cart-counter'),
@@ -17,6 +18,7 @@ export default function updateCart() {
     })
 
     $totalCart.textContent = tPay;
+    $containerCart.dataset.total = tPay;
     
     if (tQuanty >= 1) {
         $counterBtn.classList.add('visible');

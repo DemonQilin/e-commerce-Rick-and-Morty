@@ -1,3 +1,5 @@
+import soludOut, { deleteSoldOut } from "./style-sold-out.js";
+
 const d = document;
 
 export default async function printCharacter() {
@@ -35,6 +37,8 @@ export default async function printCharacter() {
         // Details
         $templateProduct.querySelector('.article-title').textContent = $article.dataset.name;
         $templateProduct.querySelector('.status').textContent = $article.dataset.status;
+        $templateProduct.querySelector('.status').classList.remove('status--dead', 'status--unknown');
+        $templateProduct.querySelector('.status').classList.add($article.dataset.status === 'Muerto' ? 'status--dead' : $article.dataset.status === 'Desconocido' ? 'status--unknown' : 'status');
         $templateProduct.querySelector('.especie').textContent = $article.dataset.specie;
         $templateProduct.querySelector('.genero').textContent = $article.dataset.gender;
         $templateProduct.querySelector('.ubicacion').textContent = $article.dataset.location;
@@ -43,6 +47,8 @@ export default async function printCharacter() {
         $templateProduct.querySelector('.article-precio').textContent = `$ ${$article.dataset.price} c/u`;
         $templateProduct.querySelector('.quanty').textContent = $article.dataset.quanty;
         $templateProduct.querySelector('.stock').textContent = `${$article.dataset.stock} unidades`;
+        deleteSoldOut($article);
+        if (+$article.dataset.stock === 0) soludOut($article);
 
         // Clonar Template
         let $clone = d.importNode($templateProduct, true);

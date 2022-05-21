@@ -62,7 +62,7 @@ main {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 2;
 
     width: 100vw;
     min-width: 320px;
@@ -727,6 +727,22 @@ main {
     font-size: 1.5rem;
 }
 
+.sold-out {
+    position: absolute;
+    top: 20%;
+    left: 0;
+    z-index: 1;
+
+    width: 203px;
+
+    text-align: center;
+    font-size: 2rem;
+
+    background-color: var(--color-red);
+    transform-origin: 0% 100%;
+    transform: rotate(-45deg);;
+}
+
 /*=================== PRODUCT DETAILS ===================*/
 .article-title {
     margin: 0;
@@ -750,6 +766,14 @@ main {
 
     background-color: #8bcf21;
     border-radius: 50%;
+}
+
+.status--dead::before {
+    background-color: #f44336;
+}
+
+.status--unknown::before {
+    background-color: gray;
 }
 
 .especie,
@@ -881,7 +905,7 @@ main {
     position: fixed;
     top: 60px;
     left: 0;
-    z-index: 1;
+    z-index: 2;
 
     width: 100vw;
     height: calc(100vh - 60px);
@@ -973,6 +997,14 @@ main {
     border-radius: 5px;
 
     border: thin solid var(--color-dark-soft);
+}
+
+.btn-empty-cart {
+    margin-left: auto;
+
+    background-color: var(--color-red);
+    border: 2px solid black;
+    border-radius: 7px;
 }
 
 /*============================== BODY CART ==============================*/
@@ -1146,7 +1178,7 @@ main {
 .btn-remove-cart {
     margin: 0 auto;
 
-    font-size: 3rem;
+    font-size: 2.5rem;
 
     border-radius: 50%;
     border: 2px black solid;
@@ -1222,6 +1254,72 @@ main {
 
 .btn-buy-cart:active {
     background-color: var(--color-second);
+}
+
+/*=============== MESSAGE BUY ===============*/
+.msg-buy {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 3;
+
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+.msg-buy-contain {
+    padding: 1rem;
+    max-width: 250px;
+
+    font-size: 2rem;
+
+    background-color: var(--color-red);
+    border-radius: 10px;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility ease 0.3s, opacity ease 0.3s;
+}
+
+.msg-buy-contain--question {
+    color: black;
+
+    background-color: var(--color-title);
+}
+
+.buy-msg {
+    margin-top: 0;
+    margin-bottom: 1rem;
+
+    text-align: center;
+}
+
+.btns-buy {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.btn-buy {
+    display: inline-block;
+
+    border: thin solid black;
+    border-radius: 50%;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.btn-confirm-buy {
+    background-color: var(--color-subtitle);
+}
+
+.btn-cancel-buy {
+    background-color: var(--color-red);
 }
 
 /*================= LOADER =================*/
