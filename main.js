@@ -1,5 +1,6 @@
 import addProductCart from "./modules/add-cart.js";
 import { toDoVisibleCart } from "./modules/btn-cart-visible.js";
+import deleteProductCart from "./modules/delete-product-cart.js";
 import { hamburguerMenu } from "./modules/hamburguer-menu.js";
 import modifyQuantyProduct from "./modules/modify-quanty.js";
 import { mouseEnterBtnsVisibles, RemoveMouseEnterBtnsVisibles } from "./modules/mouse-enter-btn-lateral.js";
@@ -24,4 +25,5 @@ d.addEventListener('DOMContentLoaded', e => {
     slidesBtnPoint('data-btn', 'data-slide', 'data-slices-container');
     addProductCart();
     modifyQuantyProduct();
+    deleteProductCart();
 })

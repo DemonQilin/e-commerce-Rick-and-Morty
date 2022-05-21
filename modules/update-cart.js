@@ -4,7 +4,8 @@ export default function updateCart() {
     const $productsCart = d.querySelectorAll('.article--cart'),
         $totalCart = d.querySelector('.total-cart--value span'),
         $counterTitle = d.querySelector('.title--cart span'),
-        $counterBtn = d.querySelector('.btn-cart .cart-counter');
+        $counterBtn = d.querySelector('.btn-cart .cart-counter'),
+        $msgCart = d.querySelector('.msg-cart-vacio');
 
 
     let tQuanty = 0,
@@ -21,6 +22,7 @@ export default function updateCart() {
         $counterBtn.classList.add('visible');
     } else if(tQuanty === 0) {
         $counterBtn.classList.remove('visible');
+        $msgCart.classList.remove('none');
     }
 
     if (tQuanty !== +$counterBtn.dataset.count) {

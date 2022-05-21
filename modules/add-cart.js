@@ -6,13 +6,16 @@ export default function addProductCart() {
     const $containerCart = d.querySelector('.container-products-cart'),
         $templateCartProduct = d.getElementById('template-product-cart').content,
         $articleProduct = $templateCartProduct.querySelector('article'),
-        $fragmentCart = d.createDocumentFragment();
+        $fragmentCart = d.createDocumentFragment(),
+        $msgCart = d.querySelector('.msg-cart-vacio');
 
     d.addEventListener('click', e => {
         if (e.target.matches('.btn-add-cart') || e.target.matches('.btn-add-cart *')) {
             const $article = e.target.closest('.article'),
                 $btn = $article.querySelector('.btn-add-cart'),
                 $control = $article.querySelector('.control-stock');
+            
+            $msgCart.classList.add('none');
             
             $btn.classList.remove('visible');
             setTimeout(() => {

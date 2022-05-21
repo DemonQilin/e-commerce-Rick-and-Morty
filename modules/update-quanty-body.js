@@ -5,8 +5,6 @@ const d = document;
 export default function updateQuantyBody(articleEvent, num) {
     const $article = d.getElementById(articleEvent.id) || d.getElementById(articleEvent.dataset.idCart);
 
-    console.log($article);
-
     const $quanty = $article.querySelector('.quanty'),
         $control = $article.querySelector('.control-stock'),
         $error = $article.querySelector('.error-quanty');
