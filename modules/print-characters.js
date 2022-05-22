@@ -3,31 +3,65 @@ import soludOut, { deleteSoldOut } from "./style-sold-out.js";
 const d = document,
     storage = window.localStorage;
 
-export default async function printCharacter(url) {
-    const $loader = d.querySelector('.products-loader-container'),
-        $containerProducts = d.querySelector('.container-products'),
-        $templateProduct = d.getElementById('template-product').content,
-        $fragment = d.createDocumentFragment(),
-        $article = $templateProduct.querySelector('article'),
-        $btnMore = d.querySelector('.btn-load');
-    
+const $loader = d.querySelector('.products-loader-container'),
+    $containerProducts = d.querySelector('.container-products'),
+    $templateProduct = d.getElementById('template-product').content,
+    $article = $templateProduct.querySelector('article'),
+    $btnMore = d.querySelector('.btn-load');
+
+let arrayResidents = [],
+    $fragment = d.createDocumentFragment();
+
+export default async function printCharacter(url, noNext, NoResetResidents) {
     // $loader.classList.add('visible-loader');
 
-    
+    // Verficiación del parametro que reseta el array de residentes, se pasa solo en caso de seleccionar un menu distinto al de ubicación, para que si existia un valor de residentes no se lea en la propiedad del boton para cargar más productos.
+    if (!NoResetResidents) {
+        arrayResidents = [];
+        $btnMore.classList.remove('none');
+    };
+
+    // Petición de los recursos de la url pasada en el parametro
     let obj = await fetch(url);
     let response = await obj.json();
+
+    // Se ejecuta si se indica que la respuesta no tendra un next (link de próxima pagina) asociado, y en este caso, solo con el primer click en los filtros de tipo ubicación.
+    if (noNext) {
+        // Sea crea un array para almacenar los id de cada residente de la ubicación
+        let subnext = [];
+        // Se reseta el array resident
+
+        response.residents.forEach(resident => {
+            subnext.push(resident.slice(42))
+            if (subnext.length === 20) {
+                arrayResidents.push(`https://rickandmortyapi.com/api/character/${subnext.join(',')}`);
+                subnext = []
+            }
+        });
+        
+        arrayResidents.push(`https://rickandmortyapi.com/api/character/${subnext.join(',')}`);
+
+        console.log(arrayResidents);
+
+        obj = await fetch(arrayResidents.shift());
+        response = await obj.json();
+    }
     
     // Asignando url al botón para la próxima pagina
-    if (response.info.next) {
-        $btnMore.dataset.url = response.info.next
-    } else {
+    if (response.info) {
+        if (response.info.next) $btnMore.dataset.url = response.info.next;
+    } else if (arrayResidents !== 0) {
+        $btnMore.dataset.url = arrayResidents.shift() || '';
+    }
+    
+    if (!$btnMore.dataset.url) {
         $btnMore.removeAttribute('data-url');
         $btnMore.classList.add('none');
     }
-        
-    // Por cada producto
-    response.results.forEach(el => {
-        // Cargando data del local stogare
+
+    // Obtención datos del producto
+    const leerObjeto = el => {
+        // Cargando datos del local storage
         const { stock: storageStock, price: storagePrice } = JSON.parse(storage.getItem(`${el.id}`)) || {};
 
         // data
@@ -68,7 +102,15 @@ export default async function printCharacter(url) {
         // Clonar Template
         let $clone = d.importNode($templateProduct, true);
         $fragment.appendChild($clone);
-    });
+    }
+    
+    if (response.results) {
+        response.results.forEach(el => leerObjeto(el))
+    } else if (response instanceof Array) {
+        response.forEach(el => leerObjeto(el));
+    } else {
+        leerObjeto(response);
+    }
 
     // Inserción en el DOM
     $containerProducts.appendChild($fragment);
