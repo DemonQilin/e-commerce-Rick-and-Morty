@@ -8,7 +8,7 @@ export default function loadMoreProducts() {
             const $btn = e.target.closest('.btn-load');
 
             if ($btn.hasAttribute('data-url')) {
-                printCharacter($btn.dataset.url, false, true);
+                printCharacter($btn.dataset.url);
             }
         }
     })

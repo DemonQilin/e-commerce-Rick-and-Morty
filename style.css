@@ -88,6 +88,8 @@ main {
     margin-left: 1rem;
 
     height: 50px;
+
+    cursor: pointer;
 }
 
 .image {
@@ -101,6 +103,8 @@ main {
     font-family: Schwifty, 'Roboto', Arial, sans-serif;
     font-size: 3rem;
     text-shadow: 0 0 5px var(--color-third), 0 0 10px var(--color-third);
+
+    cursor: pointer;
 }
 
 @media screen and (min-width: 1024px) {
@@ -411,6 +415,24 @@ main {
     }
 }
 
+.aviso {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4rem;
+
+    background-color: var(--color-red);
+    color: var(--color-letter);
+
+    transform: translateY(100%);
+}
 /*=============== BUTTON DARK-MODE ===============*/
 .btn-dark--mode {
     margin-right: 1rem;
@@ -928,6 +950,28 @@ main {
     transition: visibility ease 0.3s, opacity ease 0.3s;
 }
 
+/*============== ERROR PRODUCT LOAD ==============*/
+
+.error-fetch {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+    
+    font-size: 2rem;
+    text-align: center;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility ease 0.3s,
+    opacity ease 0.3s;
+}
+
 /*====================== SECTION CART ======================*/
 
 .section--cart {
@@ -1435,6 +1479,9 @@ main {
 
 .products-loader-container {
     position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
 
     width: 100%;
     height: 100%;
@@ -1472,7 +1519,7 @@ main {
 }
 
 .visible-loader {
-    visibility: 0.7;
+    opacity: 0.6;
     visibility: visible;
 }
 

@@ -42,13 +42,13 @@
 </head>
 <body>
     <header class="header" id="header">
-        <div class="container-image">
+        <div class="container-image" data-inicio>
             <img src="./assets/img/logo.png" alt="Logo de mercado intergaláctico" class="image">
         </div>
-        <h1 class="title">Mercado Intergalactico</h1>
+        <h1 class="title" data-inicio>Mercado Intergalactico</h1>
         <form id="form-search" class="form-search">
-            <input type="text" name="search" id="search" class="input--search" placeholder="Busca el nombre del personaje" pattern="^\w{1,60}$">
-            <input type="submit" class="submit--search" value="🔍">
+            <input type="text" name="search" class="input--search" placeholder="Busca el nombre del personaje" pattern="^\w{1,60}$" title="El nombre debe tener exclusivamente carácteres alfanúmericos" data-validar>
+            <input type="submit" class="submit--search" value="🔍" data-submit>
         </form>
         <button class="btn btn--menu hamburger hamburger--vortex" type="button">
             <span class="hamburger-box">
@@ -167,11 +167,11 @@
         <section class="section">
             <h2 class="section-title">NFT'S ON FIRE</h2>
             <div class="container-products">
-                <!-- <div class="products-loader-container">
+                <div class="products-loader-container">
                     <div class="products-loader">
                         <img src="./assets/icons/loader.svg" alt="">
                     </div>
-                </div> -->
+                </div>
                 <template id="template-product">
                     <article class="article article-product" data-resume="">
                         <div class="sold-out none">SOLD OUT</div>
@@ -200,6 +200,7 @@
                         </div>
                     </article>
                 </template>
+                <div class="error-fetch none"></div>
             </div>
         </section>
         <section class="section section--cart">
