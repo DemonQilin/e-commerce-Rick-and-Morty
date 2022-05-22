@@ -1,4 +1,5 @@
 import addProductCart from "./modules/add-cart.js";
+import scrollTopButton from "./modules/boton-scroll.js";
 import { toDoVisibleCart } from "./modules/btn-cart-visible.js";
 import buyProduct from "./modules/buy-product.js";
 import deleteProductCart from "./modules/delete-product-cart.js";
@@ -22,6 +23,7 @@ d.addEventListener('DOMContentLoaded', e => {
     hamburguerMenu('.btn--menu', '.nav', '.nav-link', '.item-link');
     toDoVisibleCart('.btn-cart', '.btn-cart-hidden', '.section--cart');
     loadMoreProducts();
+    scrollTopButton();
     mediaResponsiveFunction(1024, mouseEnterVisible, removeMouseEnterVisible);
     mediaResponsiveFunction(1024, mouseEnterBtnsVisibles, RemoveMouseEnterBtnsVisibles);
     observer('data-slide', 'active-carrusel-btn', 'data-btn');

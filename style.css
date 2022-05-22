@@ -417,8 +417,6 @@ main {
 /*====================== BUTTON CART ======================*/
 
 .btn-cart {
-    --position: 7px;
-
     position: fixed;
     bottom: 1vh;
     right: 1vw;
@@ -483,6 +481,34 @@ main {
 
     .cart-counter {
         transform: translate(var(--position), calc(-1 * var(--position)));
+    }
+}
+
+/*=================== BUTTON SCROLL ===================*/
+.btn--scroll {
+    position: fixed;
+    bottom: 1vh;
+    left: 1vw;
+    width: 75px;
+    height: 75px;
+
+    z-index: 1;
+    
+    font-size: 5rem;
+    
+    background-color: var(--color-title);
+    border-radius: 50%;
+    border: 2px solid black;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility ease 0.3s, opacity ease 0.3s;
+}
+
+@media screen and (min-width: 1024px) {
+    .btn--scroll {
+        left: unset;
+        right: 1vw;
     }
 }
 /*===================== SECTIONS =====================*/
