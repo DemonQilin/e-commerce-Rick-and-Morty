@@ -8,13 +8,23 @@ export default async function printCharacter(url) {
         $containerProducts = d.querySelector('.container-products'),
         $templateProduct = d.getElementById('template-product').content,
         $fragment = d.createDocumentFragment(),
-        $article = $templateProduct.querySelector('article');
+        $article = $templateProduct.querySelector('article'),
+        $btnMore = d.querySelector('.btn-load');
     
     // $loader.classList.add('visible-loader');
 
+    
     let obj = await fetch(url);
     let response = await obj.json();
-
+    
+    // Asignando url al botón para la próxima pagina
+    if (response.info.next) {
+        $btnMore.dataset.url = response.info.next
+    } else {
+        $btnMore.removeAttribute('data-url');
+        $btnMore.classList.add('none');
+    }
+        
     // Por cada producto
     response.results.forEach(el => {
         // Cargando data del local stogare

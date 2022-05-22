@@ -721,7 +721,7 @@ main {
     margin-bottom: 1rem;
     padding: 0 2rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     gap: 1rem;
 
     font-size: 1.5rem;
@@ -1371,6 +1371,35 @@ main {
 
     text-align: center;
     font-size: 65%;
+}
+
+/*============ BUTTON LOAD MORE ============*/
+.container-btn-load {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-load {
+    width: unset;
+    padding: 1rem;
+
+    font-size: 1.5rem;
+
+    border-radius: 10px;
+    background-color: var(--color-title);
+}
+
+.btn-load i {
+    margin-left: 1rem;
+
+    font-size: 2rem;
+
+    transform: translateY(-25%);
+}
+
+.btn-load:active {
+    text-decoration: underline;
 }
 
 /*================= LOADER =================*/

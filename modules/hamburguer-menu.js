@@ -5,7 +5,6 @@ export function hamburguerMenu(btn, nav, typeFilter,filter) {
         $menu = d.querySelector(nav);
 
     d.addEventListener('click', e => {
-        e.preventDefault();
 
         const $subLists = d.querySelectorAll('.item-container');
 
@@ -15,6 +14,7 @@ export function hamburguerMenu(btn, nav, typeFilter,filter) {
         }
 
         if (e.target.matches(typeFilter) || e.target.matches(`${typeFilter} *`)) {
+            e.preventDefault();
             const $divContainer = e.target.closest(typeFilter);
             
             $divContainer.nextElementSibling.classList.toggle('none');
@@ -22,6 +22,7 @@ export function hamburguerMenu(btn, nav, typeFilter,filter) {
         }
 
         if (e.target.matches(filter)) {
+            e.preventDefault();
             $btn.classList.remove('is-active');
             $menu.classList.remove('visible-translate');
             $subLists.forEach(el => {

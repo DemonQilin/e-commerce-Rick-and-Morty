@@ -4,6 +4,7 @@ import buyProduct from "./modules/buy-product.js";
 import deleteProductCart from "./modules/delete-product-cart.js";
 import emptyCart from "./modules/empty-cart.js";
 import { hamburguerMenu } from "./modules/hamburguer-menu.js";
+import loadMoreProducts from "./modules/load-more.js";
 import modifyQuantyProduct from "./modules/modify-quanty.js";
 import { mouseEnterBtnsVisibles, RemoveMouseEnterBtnsVisibles } from "./modules/mouse-enter-btn-lateral.js";
 import { mouseEnterVisible, removeMouseEnterVisible } from "./modules/mouse-enter-filters.js";
@@ -18,9 +19,9 @@ const d = document,
 
 d.addEventListener('DOMContentLoaded', e => {
     printCharacter('https://rickandmortyapi.com/api/character');
-    printCharacter('https://rickandmortyapi.com/api/character/?page=2');
     hamburguerMenu('.btn--menu', '.nav', '.nav-link', '.item-link');
-    toDoVisibleCart('.btn-cart','.btn-cart-hidden' ,'.section--cart'),
+    toDoVisibleCart('.btn-cart', '.btn-cart-hidden', '.section--cart');
+    loadMoreProducts();
     mediaResponsiveFunction(1024, mouseEnterVisible, removeMouseEnterVisible);
     mediaResponsiveFunction(1024, mouseEnterBtnsVisibles, RemoveMouseEnterBtnsVisibles);
     observer('data-slide', 'active-carrusel-btn', 'data-btn');
