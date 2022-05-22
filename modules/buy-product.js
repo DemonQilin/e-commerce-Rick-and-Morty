@@ -2,7 +2,8 @@ import { deleteCart } from "./delete-product-cart.js";
 import soludOut from "./style-sold-out.js";
 import updateCart from "./update-cart.js";
 
-const d = document;
+const d = document,
+    storage = window.localStorage;
 
 export default function buyProduct() {
     const $containerMsg = d.querySelector('.msg-buy'),
@@ -44,14 +45,15 @@ export default function buyProduct() {
 
         // Si se confirma la compra
         if (e.target.matches('.btn-confirm-buy') || e.target.matches('.btn-confirm-buy *')) {
-            console.log($products);
             const products = $containerCart.querySelectorAll('.article--cart');
-            console.log(products);
             products.forEach(product => {
                 const article = d.getElementById(product.dataset.idCart);
+                let { stock, price } = JSON.parse(storage.getItem(`${article.id}`));
 
-                article.dataset.stock = +article.dataset.stock - +article.dataset.quanty;
-                article.querySelector('.stock').textContent = `${article.dataset.stock} unidades`
+                stock -= +article.dataset.quanty;
+                storage.setItem(`${article.id}`, `{"stock": ${stock}, "price": ${price}}`);
+                article.dataset.stock = stock;
+                article.querySelector('.stock').textContent = `${article.dataset.stock} unidades`;
                 deleteCart(product);
                 if (+article.dataset.stock === 0) soludOut(article);
             });

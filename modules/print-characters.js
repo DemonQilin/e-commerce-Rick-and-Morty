@@ -1,12 +1,14 @@
 import soludOut, { deleteSoldOut } from "./style-sold-out.js";
 
-const d = document;
+const d = document,
+    storage = window.localStorage;
 
 export default async function printCharacter() {
     const $loader = d.querySelector('.products-loader-container'),
         $containerProducts = d.querySelector('.container-products'),
         $templateProduct = d.getElementById('template-product').content,
-        $fragment = d.createDocumentFragment();
+        $fragment = d.createDocumentFragment(),
+        $article = $templateProduct.querySelector('article');
     
     // $loader.classList.add('visible-loader');
 
@@ -15,8 +17,8 @@ export default async function printCharacter() {
 
     // Por cada producto
     response.results.forEach(el => {
-        // Seleccionando Article
-        let $article = $templateProduct.querySelector('article');
+        // Cargando data del local stogare
+        const { stock: storageStock, price: storagePrice } = JSON.parse(storage.getItem(`${el.id}`)) || {};
 
         // data
         $article.setAttribute('id', el.id);
@@ -26,9 +28,12 @@ export default async function printCharacter() {
         $article.dataset.specie = el.species === "Human" ? "Humano" : el.species;
         $article.dataset.gender = el.gender === "Male" ? "Masculino" : el.gender === "Female" ? "Femenino" : el.gender === "Genderless" ? "No Binario" : "Desconocido";
         $article.dataset.location = el.location.name === "Citadel of Ricks" ? "Ciudadela de los Ricks" : el.location.name === "Earth (C-137)" ? "Tierra C-137" : el.location.name === "Interdimensional Cable" ? "Cable Interdimensional" : el.location.name === "Story Train" ? "Tren de Historias" : el.location.name;
-        $article.dataset.price = 100 + Math.round(Math.random() * 900);
+        $article.dataset.price = storagePrice || (100 + Math.round(Math.random() * 900));
         $article.dataset.quanty = 1;
-        $article.dataset.stock = 1 + Math.round(Math.random() * 9);
+        $article.dataset.stock = (storageStock === 0 ? "0" : storageStock) || (1 + Math.round(Math.random() * 9));
+
+        // Verificando si el producto existe en el local storage
+        if (!storage.getItem(`${$article.id}`)) storage.setItem(`${$article.id}`, `{"stock": ${$article.dataset.stock}, "price": ${$article.dataset.price}}`);
 
         // Photo
         $templateProduct.querySelector('img').src = $article.dataset.photo;
