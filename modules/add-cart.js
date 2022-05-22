@@ -1,3 +1,4 @@
+import errorAnimation from "./animation-error-quanty.js";
 import updateCart from "./update-cart.js";
 
 const d = document;
@@ -48,6 +49,8 @@ export default function addProductCart() {
                 $containerCart.appendChild($fragmentCart);
     
                 updateCart();
+            } else {
+                errorAnimation($article.querySelector('.error-quanty'), $btn, 'Producto agotado temporalmente');
             }
         }
     })

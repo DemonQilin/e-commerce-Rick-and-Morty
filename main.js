@@ -17,7 +17,8 @@ const d = document,
     w = window;
 
 d.addEventListener('DOMContentLoaded', e => {
-    printCharacter();
+    printCharacter('https://rickandmortyapi.com/api/character');
+    printCharacter('https://rickandmortyapi.com/api/character/?page=2');
     hamburguerMenu('.btn--menu', '.nav', '.nav-link', '.item-link');
     toDoVisibleCart('.btn-cart','.btn-cart-hidden' ,'.section--cart'),
     mediaResponsiveFunction(1024, mouseEnterVisible, removeMouseEnterVisible);

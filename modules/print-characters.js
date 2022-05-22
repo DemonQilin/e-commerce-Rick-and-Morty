@@ -3,7 +3,7 @@ import soludOut, { deleteSoldOut } from "./style-sold-out.js";
 const d = document,
     storage = window.localStorage;
 
-export default async function printCharacter() {
+export default async function printCharacter(url) {
     const $loader = d.querySelector('.products-loader-container'),
         $containerProducts = d.querySelector('.container-products'),
         $templateProduct = d.getElementById('template-product').content,
@@ -12,7 +12,7 @@ export default async function printCharacter() {
     
     // $loader.classList.add('visible-loader');
 
-    let obj = await fetch('https://rickandmortyapi.com/api/character');
+    let obj = await fetch(url);
     let response = await obj.json();
 
     // Por cada producto
