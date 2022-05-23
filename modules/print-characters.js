@@ -139,6 +139,8 @@ export default async function printCharacter(url, noNext, value) {
         $containerProducts.appendChild($fragment);
 
     } catch (err) {
+        $btnMore.removeAttribute('data-url');
+        $btnMore.classList.add('none');
         $errorFetch.textContent = err;
         $errorFetch.classList.remove('none');
         $errorFetch.classList.add('visible');
