@@ -87,6 +87,7 @@ const buildCharacterPage = async response => {
 }
 
 export default async function printCharacter(url, noNext, value) {
+    $loader.classList.remove('none');
     $loader.classList.add('visible-loader');
 
     // Removiendo visualizacion de error de busqueda
@@ -142,6 +143,7 @@ export default async function printCharacter(url, noNext, value) {
         $errorFetch.classList.remove('none');
         $errorFetch.classList.add('visible');
     } finally {
+        $loader.classList.add('none');
         $loader.classList.remove('visible-loader');
     }
 }

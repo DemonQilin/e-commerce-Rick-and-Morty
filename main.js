@@ -2,6 +2,7 @@ import addProductCart from "./modules/add-cart.js";
 import scrollTopButton from "./modules/boton-scroll.js";
 import { toDoVisibleCart } from "./modules/btn-cart-visible.js";
 import buyProduct from "./modules/buy-product.js";
+import darkModeBtn from "./modules/dark-mode.js";
 import deleteProductCart from "./modules/delete-product-cart.js";
 import emptyCart from "./modules/empty-cart.js";
 import { hamburguerMenu } from "./modules/hamburguer-menu.js";
@@ -22,6 +23,7 @@ const d = document,
     w = window;
 
 d.addEventListener('DOMContentLoaded', e => {
+    darkModeBtn();
     printCharacter('https://rickandmortyapi.com/api/character');
     hamburguerMenu('.btn--menu', '.nav', '.nav-link', '.item-link');
     toDoVisibleCart('.btn-cart', '.btn-cart-hidden', '.section--cart');
