@@ -561,6 +561,7 @@ main {
 
     font-size: 3rem;
     font-weight: 400;
+    filter: invert(calc(1 * var(--theme-dark)));
 }
 /*====================== CARRUSEL ======================*/
 .carrusel {

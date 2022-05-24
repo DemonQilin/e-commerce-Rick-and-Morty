@@ -48,14 +48,18 @@ export default function buyProduct() {
             const products = $containerCart.querySelectorAll('.article--cart');
             products.forEach(product => {
                 const article = d.getElementById(product.dataset.idCart);
-                let { stock, price } = JSON.parse(storage.getItem(`${article.id}`));
+                let { stock, price } = JSON.parse(storage.getItem(`${product.dataset.idCart}`));
 
-                stock -= +article.dataset.quanty;
-                storage.setItem(`${article.id}`, `{"stock": ${stock}, "price": ${price}}`);
-                article.dataset.stock = stock;
-                article.querySelector('.stock').textContent = `${article.dataset.stock} unidades`;
+                stock -= +product.dataset.quanty;
+                storage.setItem(`${product.dataset.idCart}`, `{"stock": ${stock}, "price": ${price}}`);
+
+                if (article) {
+                    article.dataset.stock = stock;
+                    article.querySelector('.stock').textContent = `${article.dataset.stock} unidades`;
+                    if (+article.dataset.stock === 0) soludOut(article);
+                }
+                
                 deleteCart(product);
-                if (+article.dataset.stock === 0) soludOut(article);
             });
 
             updateCart();

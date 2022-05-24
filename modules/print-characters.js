@@ -8,7 +8,8 @@ const $loader = d.querySelector('.products-loader-container'),
     $templateProduct = d.getElementById('template-product').content,
     $article = $templateProduct.querySelector('article'),
     $btnMore = d.querySelector('.btn-load'),
-    $errorFetch = d.querySelector('.error-fetch');
+    $errorFetch = d.querySelector('.error-fetch'),
+    $containerCart = d.querySelector('.container-products-cart');
 
 let arrayResidents = [],
     $fragment = d.createDocumentFragment();
@@ -16,7 +17,9 @@ let arrayResidents = [],
 // Funcion para leer datos de un personaje
 const leerObjeto = el => {
     // Cargando datos del local storage
-    const { stock: storageStock, price: storagePrice } = JSON.parse(storage.getItem(`${el.id}`)) || {};
+    const { stock: storageStock, price: storagePrice } = JSON.parse(storage.getItem(`${el.id}`)) || {},
+        $btnAdd = $article.querySelector('.btn-add-cart'),
+        $control = $article.querySelector('.control-stock');
 
     // data
     $article.setAttribute('id', el.id);
@@ -51,7 +54,23 @@ const leerObjeto = el => {
     $templateProduct.querySelector('.quanty').textContent = $article.dataset.quanty;
     $templateProduct.querySelector('.stock').textContent = `${$article.dataset.stock} unidades`;
     deleteSoldOut($article);
+
+    // Verificando que este agotado
     if (+$article.dataset.stock === 0) soludOut($article);
+
+    // Verificando si esta en el carrito
+    $btnAdd.classList.add('visible');
+    $btnAdd.classList.remove('none');
+    $control.classList.add('none');
+    $control.classList.remove('visible');
+    
+    if ($containerCart.querySelector(`[data-id-cart="${el.id}"]`)) {
+        $btnAdd.classList.remove('visible');
+        $btnAdd.classList.add('none');
+        $templateProduct.querySelector('.quanty').textContent = $containerCart.querySelector(`[data-id-cart="${el.id}"]`).dataset.quanty;
+        $control.classList.remove('none');
+        $control.classList.add('visible');
+    }
 
     // Clonar Template
     let $clone = d.importNode($templateProduct, true);
